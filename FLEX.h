@@ -60,39 +60,22 @@
 #define  FLEX_TIMER_CHIE  0x40
 #define  FLEX_TIMER_CHF   0x80
 
-/**
- * 	\brief Changes a the value of the final value that the motor will take and starts
- * 	a flex timer to gradually change the speed 5% every 0.1 seconds.
- *
- * 	\param[in] final_value The final speed value of the motor.
- */
-
-void FLEX_changeCH(uint8 final_value);
-
-/**
- * 	\brief Updates the speed of the motor to a value from 5 to 100.
- *
- * 	\param[in] decre a value from 5 to 100 that represents the speed percentage of the motor.
- */
-
-void FLEX_updateCHValue(uint8 decre);
-
-/**
- * 	\brief Necessary configurations for PWM timer.
- *
- * 	Initializes FTM0 for PWM and FTM1 for output compare to gradually change motor every 0.1 seconds.
- */
 
 void FLEX_init();
 
-void init_pwm();
+uint8 FLEX_get_done();
 
-void init_grad();
 
-void init_cap();
+float FLEX_get_time();
 
-void init_MCG();
+void FLEX_on_0_5();
 
-uint32 FLEX_get_cap_frec();
+
+void FLEX_on_1();
+
+
+void FLEX_off();
+
+void FLEX_set_time(float newTime);
 
 #endif /* FLEX_H_ */
